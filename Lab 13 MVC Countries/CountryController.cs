@@ -9,9 +9,10 @@ namespace Lab_13_MVC_Countries
 {
     internal class CountryController
     {
+        //List in property of class
         public List<Country> CountryDb { get; set; } = new List<Country>()
         {
-            
+
             new Country("Cambodia",Continent.Asia, new List<string> {"Blue      ","Red       ","White     "}),
             new Country("Japan",Continent.East_Asia, new List<string> {"Red       ","White     "}),
             new Country("North Korea",Continent.East_Asia, new List<string> {"Red       ","Yellow    "}),
@@ -29,25 +30,19 @@ namespace Lab_13_MVC_Countries
             new Country("Canada",Continent.North_America, new List<string> {"Red       ","White     "}),
             new Country("Venezuala",Continent.Aouth_America, new List<string> {"Yellow    ","Red       ","Blue      "}),
             new Country("Suriname",Continent.Aouth_America, new List<string> {"Yellow     ","Red        ","Green      "}),
-            new Country("Aruba",Continent.Aouth_America, new List<string> { "Blue      ","Yellow    ","Red       " }),
-            
-
-
-
+            new Country("Aruba",Continent.Aouth_America, new List<string> { "Blue      ","Yellow    ","Red       " }),                      
         };
-
-        public CountryController() { }
-
         public void CountryAction(Country c)
         {
             CountryView cv = new CountryView(c);
             
             cv.Display();
         }
+        //Call display on the CountryListView after welcome message
         public void WelcomeAction()
         {
             bool goAgain = true;
-            while(goAgain)
+            while (goAgain)
             {
                 try
                 {
@@ -64,27 +59,33 @@ namespace Lab_13_MVC_Countries
                 catch (FormatException e)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(e.Message);
+                    //learned that you can print console message
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Clear();
+                    //Console.WriteLine(e.Message);
+                    Console.WriteLine("Invalid Input: ");
                 }
                 catch (ArgumentOutOfRangeException a)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(a.Message);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Clear();
+                    Console.WriteLine("Invalid Input: ");
                 }
-                Console.ForegroundColor= ConsoleColor.DarkCyan;
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-                Console.WriteLine("Learn Another Country? [YES] OR [NO]: ");
+                Console.WriteLine("Learn About A Country? [YES] OR [NO]: ");
                 Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                 Console.ResetColor();
                 string input = Console.ReadLine().ToUpper().Trim();
-                if(input == "YES" || input == "Y")
+                if (input == "YES" || input == "Y")
                 {
                     Console.Clear();
                     continue;
                 }
                 else if (input == "NO" || input == "N")
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
                     Console.WriteLine("Thank you for viewing the collection.");
                     Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -102,6 +103,8 @@ namespace Lab_13_MVC_Countries
                     goAgain = true;
                 }
             }
+            
+            
         }
     }
 }

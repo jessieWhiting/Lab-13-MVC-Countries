@@ -10,11 +10,11 @@ namespace Lab_13_MVC_Countries
 {
     internal class Country
     {
-        //properties
+        //properties:Name.EnumContinent.ListColors.
     
         public string Name { get; set; }
         public Continent Continent { get; set; }
-        public  List<string> Colors { get; set; }
+        public List<string> Colors { get; set; }
 
         //Constructor
 
