@@ -21,7 +21,7 @@ namespace Lab_13_MVC_Countries
             for (int i = 1; i < Countries.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine($"{i}). {Countries[i].Name}\n-------------------");
+                Console.WriteLine($"{i}). {Countries[i].Name}\n````````````````````````");
                 
             }
  

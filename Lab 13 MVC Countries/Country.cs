@@ -29,7 +29,7 @@ namespace Lab_13_MVC_Countries
 
     public enum Continent : int
     {
-        
+        //How can I add space in enum??
         Asia,        
         East_Asia,       
         Asia_Middle_East,       
